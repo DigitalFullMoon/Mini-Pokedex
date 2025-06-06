@@ -4,28 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Pokédex</title>
 
     <link rel="stylesheet" href="css/bootstrap.css">
-
-
-    <title>Mini Pokedex</title>
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="js/bootstrap.bundle.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 
-
 <body>
-    <h1>Le Mini Pokédex</h1>
+    <!-- Titre principal de la page, centré et avec une marge verticale (padding-y) -->
+    <h1 class="text-center py-5 text-danger">Le Mini Pokédex</h1>
 
-    <div class="container">
-        <input type="number" id="pokemonId" placeholder="ID Pokémon (1 à 898)">
-        <button id="chercher">Chercher</button>
-        <p id="message" class="erreur"></p>
-
-        <div id="resultat" class="carte"></div>
+    <!-- Conteneur global pour la barre de recherche -->
+    <div class="pokedex-container">
+        <!-- Ligne Bootstrap centrée horizontalement -->
+        <div class="row justify-content-center" id="search-bar">
+            <!-- Colonne qui occupe toute la largeur sur petit écran, et 10 colonnes sur écran moyen+ -->
+            <div class="col-12 col-md-10 bg-dark py-3 rounded">
+                <!-- Formulaire de recherche avec une disposition flexible et responsive -->
+                <form class="search-bar d-flex flex-wrap justify-content-around align-items-center">
+                    <!-- Bloc contenant le label -->
+                    <div class="col-12 col-md-auto mb-2">
+                        <label for="poke-id" class="form-label text-light m-0">
+                            ID du Pokémon (de 1 à 898) :
+                        </label>
+                    </div>
+                    <!-- Bloc contenant le champ de saisie -->
+                    <div class="col-12 col-md-auto mb-2">
+                        <input type="text" id="poke-id" class="form-control" value="">
+                    </div>
+                    <!-- Bloc contenant le bouton de recherche -->
+                    <div class="col-12 col-md-auto">
+                        <button type="submit" class="btn btn-danger">Chercher</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-</body>
+    <!-- Conteneur global de la carte Pokédex (affichée après recherche) -->
+    <div class="pokedex-card-wrapper">
+        <!-- Ligne centrée contenant la carte -->
+        <div class="row justify-content-center" id="pokedex-card">
+            <!-- Colonne contenant le fond sombre et les bordures -->
+            <div class="col-12 col-md-10 py-3 bg-dark rounded">
+                <!-- Carte Pokédex stylisée -->
+                <div class="pokedex-card text-white">
+                    
+                    <!-- Titre du Pokémon affiché en grand et centré -->
+                    <div class="pokedex-title mb-4 text-center fs-1 fw-bold"></div>
 
+                    <!-- Taux de capture du Pokémon, centré et en gras -->
+                    <div class="pokedex-capture mb-3 text-center py-3 text-white fs-4 fw-bold"></div>
+                    
+                    <!-- Groupe d’œufs ou famille du Pokémon, centré -->
+                    <div class="pokedex-family mb-3 text-center text-white fs-6"></div>
+
+                    <!-- Ligne contenant la description à gauche et l’image à droite -->
+                    <div class="row">
+                        <!-- Colonne principale pour la description -->
+                        <div class="col-md-9">
+                            <div class="pokedex-desc text-justify text-white fs-4 mb-2"></div>
+                        </div>
+                        <!-- Colonne secondaire pour l’image du Pokémon -->
+                        <div class="col-md-3 d-flex flex-column justify-content-end align-items-center h-100">
+                            <div class="pokedex-img">
+                                <img src="" alt="Image Pokémon" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin pokedex-card -->
+            </div> <!-- Fin col -->
+        </div> <!-- Fin row -->
+    </div> <!-- Fin pokedex-card-wrapper -->
+
+</body>
 </html>

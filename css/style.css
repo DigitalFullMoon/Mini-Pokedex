@@ -1,0 +1,139 @@
+/* Intègre une police personnalisée "Pokemon Solid" */
+@font-face {
+    font-family: 'Pokemon Solid';
+    src: url('../font/Pokemon_Solid.ttf') format('truetype');
+}
+
+/* Style général du corps de la page */
+body {
+    background: #393536; /* Fond gris foncé */
+    font-family: Arial, sans-serif; /* Police par défaut si Pokémon n'est pas utilisée */
+}
+
+/* Style du titre principal (h1) */
+h1 {
+    font-family: 'Pokemon Solid', sans-serif; /* Police Pokémon */
+    -webkit-text-stroke: 1px white; /* Contour blanc autour du texte */
+    font-size: 2.7rem; /* Taille assez grande */
+}
+
+/* Barre de recherche principale */
+#search-bar {
+    width: 100%; /* Prend toute la largeur */
+    margin: auto; /* Centrée horizontalement */
+}
+
+/* Style du champ de saisie avec ID poke-id */
+input#poke-id.form-control {
+    background-color: #dc3545 !important; /* Rouge "danger" de Bootstrap forcé */
+    color: white !important; /* Texte en blanc forcé */
+    border: none !important; /* Supprime les bordures par défaut */
+}
+
+/* Même champ quand il est sélectionné (focus) */
+input#poke-id.form-control:focus {
+    background-color: #dc3545 !important; /* Garde le rouge même au focus */
+    color: white !important; /* Texte reste blanc */
+    box-shadow: none !important; /* Supprime l’effet d’ombre bleue Bootstrap */
+    border: none !important; /* Garde le champ sans bordure */
+}
+
+/* Les boutons dans le conteneur Pokedex prennent toute la largeur */
+.pokedex-container button {
+    width: 100%;
+}
+
+/* Carte principale du pokédex (colonne Bootstrap) */
+#pokedex-card {
+    width: 100%;
+    margin: auto; /* Centrée horizontalement */
+}
+
+/* Conteneur principal de la carte */
+.pokedex-card-wrapper {
+    width: 100%;
+    display: none; /* Masquée par défaut (sera affichée dynamiquement) */
+    align-items: center; /* Centre les éléments verticalement */
+    justify-content: center; /* Centre les éléments horizontalement */
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+/* Carte intérieure avec bordures et fond */
+.pokedex-card {
+    width: 70%; /* Largeur réduite sur grands écrans */
+    margin: auto;
+    border: 3px solid yellow; /* Bordure jaune style Pokédex */
+    border-radius: 8px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 0.25%;
+    box-sizing: border-box; /* Inclus les paddings dans la largeur */
+}
+
+/* Bloc contenant les informations texte du Pokémon */
+.pokedex-info {
+    display: flex;
+    flex-direction: column; /* Affiche les enfants verticalement */
+    align-items: flex-start; /* Aligne le contenu à gauche */
+    font-size: 1.6rem;
+}
+
+/* Titre (nom du Pokémon) */
+.pokedex-title {
+    font-family: 'Pokemon Solid', sans-serif;
+    color: #0f5f63; /* Vert foncé */
+    -webkit-text-stroke: 0.3px white; /* Légère bordure blanche */
+    letter-spacing: 1.5px; /* Espacement des lettres */
+}
+
+/* Zone affichant la capture rate */
+.pokedex-capture {
+    background: linear-gradient(90deg, #0f5f63 80%, transparent 100%);
+    width: 100%; /* Prend toute la largeur disponible */
+}
+
+/* Description du Pokémon */
+.pokedex-desc {
+    line-height: 2; /* Hauteur de ligne généreuse pour lecture */
+    white-space: pre-line; /* Garde les retours à la ligne du texte */
+}
+
+/* Image du Pokémon */
+.pokedex-img img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Redimensionne sans déformation */
+    background: #0f5f63; /* Fond vert foncé derrière l’image */
+    border: 1px dashed black; /* Bordure noire en pointillés */
+    padding: 1%; /* Petite marge intérieure */
+}
+
+/* Media query pour écran <= 900px (tablettes et petits ordis) */
+@media (max-width: 900px) {
+    .pokedex-card {
+        flex-direction: column !important; /* Colonne verticale */
+        padding: 30px 20px; /* Padding plus large */
+        gap: 20px; /* Espace entre les éléments */
+    }
+
+    .pokedex-img img {
+        width: 240px;
+        height: 240px; /* Image fixe plus petite */
+    }
+}
+
+/* Media query pour écran <= 600px (smartphones) */
+@media (max-width: 600px) {
+    .pokedex-card {
+        padding: 20px 10px; /* Moins de padding */
+    }
+
+    .pokedex-img img {
+        width: 160px;
+        height: 160px; /* Image encore plus petite */
+    }
+}
